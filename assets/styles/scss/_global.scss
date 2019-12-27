@@ -1,0 +1,1191 @@
+/************************************************
+
+Stylesheet: Global Stylesheet
+
+*************************************************/
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+.page-title {
+	
+	// Remove Foundation vcard styling from author page titles
+	.vcard {
+		border: 0px;
+		padding: 0px;
+	}
+}
+
+// Post meta  
+.byline {
+	color: #999;
+	time {}
+}
+
+// Entry content  
+.entry-content {
+	
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.alignleft, img.alignleft { 
+		margin-right: 1.5em; 
+		display: inline; 
+		float: left; 
+	}
+	.alignright, img.alignright { 
+		margin-left: 1.5em; 
+		display: inline; 
+		float: right; 
+	}
+	.aligncenter, img.aligncenter { 
+		margin-right: auto; 
+		margin-left: auto; 
+		display: block; 
+		clear: both; 
+	}
+			
+	video, object {
+		max-width: 100%;
+		height: auto;
+		}
+
+	pre {
+		background: #eee;
+		border: 1px solid #cecece;
+		padding: 10px;
+		}
+
+} 
+
+.wp-caption {
+	max-width: 100%;
+	background: #eee;
+	padding: 5px;
+
+	// Images inside wp-caption  
+	img {
+		max-width: 100%;
+		margin-bottom: 0;
+		width: 100%;
+	}
+
+	p.wp-caption-text {
+		font-size: 0.85em;
+		margin: 4px 0 7px;
+		text-align: center;
+	}
+} 
+
+// Add Foundation styling to password protect button
+.post-password-form input[type="submit"] {
+	@include button;
+}
+
+/*********************
+IMAGE GALLERY STYLES
+*********************/
+.gallery {
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-right: -15px;
+	margin-left: -15px; 
+}
+.gallery::before, .gallery::after {
+	content: ' ';
+	display: table; 
+}
+.gallery::after {
+	clear: both; 
+}
+.gallery.gallery-columns-1 > dl {
+	@include grid-column;
+}
+.gallery.gallery-columns-2 > dl {
+	@include grid-column(1 of 2);
+}
+.gallery.gallery-columns-3 > dl {
+	@include grid-column(1 of 3);
+}
+.gallery.gallery-columns-4 > dl {
+	@include grid-column(1 of 4);
+}
+.gallery.gallery-columns-5 > dl {
+	@include grid-column(1 of 5);
+}
+.gallery.gallery-columns-6 > dl {
+	@include grid-column(1 of 6);
+}
+.gallery.gallery-columns-7 > dl {
+	@include grid-column(1 of 7);
+}
+.gallery.gallery-columns-8 > dl {
+	@include grid-column(1 of 8);
+}
+.gallery dl {
+	width: 100%;
+	float: left;
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem; 
+}
+.gallery dl:last-child:not(:first-child) {
+  float: right; 
+ }
+
+// Gallery caption styles
+.gallery-caption {}
+.size-full {}
+.size-large {}
+.size-medium {}
+.size-thumbnail {}
+
+/*********************
+PAGE NAVI STYLES
+*********************/
+.page-navigation {
+	margin-top: 1rem;
+}
+
+/*********************
+COMMENT STYLES
+*********************/
+#comments {
+	.commentlist {
+		margin-left: 0px;
+	}
+}
+
+#respond {
+	ul {
+		margin-left: 0px;
+	}
+}
+
+.commentlist {
+	li {
+		position: relative;
+		clear: both;
+		overflow: hidden;
+		list-style-type: none;
+		margin-bottom: 1.5em;
+		padding: 0.7335em 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.children {
+			margin: 0;
+
+			li {}
+
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {}           // Change number for different depth  
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+
+		}
+	}
+
+	li[class*=depth-] {
+		margin-top: 1.1em;
+	}
+
+	li.depth-1 {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	li:not(.depth-1) {
+		margin-left: 10px;
+		margin-top: 0;
+		padding-bottom: 0;
+	}
+
+	li.depth-2 {}
+	li.depth-3 {
+	}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	// General comment classes  
+	.alt {}
+	.odd {
+	}
+	.even {
+	}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	// vcard  
+	.vcard {
+		margin-left: 50px;
+
+		cite.fn {
+			font-weight: 700;
+			font-style: normal;
+
+			a.url {}
+
+		}
+
+		time {
+			float: right;
+
+			a {
+				color: #999;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+		img.photo {}
+
+		img.avatar {
+			position: absolute;
+			left: 10px;
+			padding: 2px;
+			border: 1px solid #cecece;
+			background: #fff;
+		}
+
+	} // end .commentlist .vcard  
+
+
+	// comment meta  
+	.comment-meta {
+
+		a {}
+
+	}
+
+	.commentmetadata {
+
+		a {}
+
+	}
+
+	// comment content  
+	.comment_content {
+
+		p {
+			margin: 0.7335em 0 1.5em;
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+	} // end .commentlist .comment_content  
+
+	// comment reply link  
+	.comment-reply-link {
+		float: right;
+
+		&:hover,
+		&:focus {
+		
+		}
+
+	} // end .commentlist .comment-reply-link  
+
+} // end .commentlist  
+
+/*********************
+COMMENT FORM STYLES
+*********************/
+.respond-form {
+	margin: 1.5em 10px;
+	padding-bottom: 2.2em;
+
+	form {
+		margin: 0.75em 0;
+
+		li {
+			list-style-type: none;
+			clear: both;
+			margin-bottom: 0.7335em;
+
+			label,
+			small {
+				display: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url],
+		textarea {
+			padding: 3px 6px;
+			background: #efefef;
+			border: 2px solid #cecece;
+			line-height: 1.5em;
+
+			&:focus {
+				background: #fff;
+			}
+
+			// form validation  
+			&:invalid {
+				outline: none;
+				border-color: #fbc2c4;
+				background-color: #f6e7eb;
+				-webkit-box-shadow: none;
+				   -moz-box-shadow: none;
+				    -ms-box-shadow: none;
+						box-shadow: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url] {
+			max-width: 400px;
+			min-width: 250px;
+		}
+
+		textarea {
+			resize: none;
+			width: 97.3%;
+			height: 150px;
+		}
+
+	}
+}
+
+// comment form title  
+#comment-form-title {
+	margin: 0 0 1.1em;
+}
+
+// cancel comment reply link  
+#cancel-comment-reply {
+	a {}
+}
+
+// logged in comments  
+.comments-logged-in-as {}
+
+// allowed tags  
+#allowed_tags {
+	margin: 1.5em 10px 0.7335em 0;
+}
+
+// No comments  
+.nocomments {
+	margin: 0 20px 1.1em;
+}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+.sidebar {
+	li{
+		list-style: none;
+	}
+}
+
+.widget {
+	ul {
+		margin: 0;
+	}
+}
+/*********************
+Typography
+*********************/
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul,
+ol,
+a {
+
+&.black {
+	color: $black;
+}
+
+&.white {
+	color: $white;
+}
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: bold;
+}
+
+h2 {
+	font-size: rem-calc(28px);
+	line-height: 1;
+	transition: font-size 0.2s ease;
+	
+@include breakpoint(medium) {
+	font-size: rem-calc(30px);
+}
+
+@include breakpoint(smedium) {
+	font-size: rem-calc(40px);
+}
+
+@include breakpoint(xlarge) {
+	font-size: rem-calc(45px);
+}
+    
+@include breakpoint(xxlarge) {
+	font-size: rem-calc(50px);
+}
+
+@include breakpoint(xxxlarge) {
+	font-size: rem-calc(60px);
+}
+	
+}
+
+h3 {
+	font-size: rem-calc(22px);
+	line-height: 1.425;	
+	transition: font-size 0.2s ease;
+	
+@include breakpoint(medium) {
+	font-size: rem-calc(24px);
+}
+
+@include breakpoint(smedium) {
+	font-size: rem-calc(28px);
+}
+
+@include breakpoint(xlarge) {
+	font-size: rem-calc(32px);
+}
+    
+@include breakpoint(xxlarge) {
+	font-size: rem-calc(36px);
+}
+
+@include breakpoint(xxxlarge) {
+	font-size: rem-calc(40px);
+}
+
+}
+
+p,
+a {
+	font-size: rem-calc(18px);
+	
+@include breakpoint(smedium) {
+	font-size: rem-calc(20px);
+}	
+
+@include breakpoint(xlarge) {
+	font-size: rem-calc(24px);
+}
+	
+}
+
+/*********************
+ELEMENTS
+*********************/
+button {
+	font-weight: 600;
+}
+
+ul.no-bullets {
+	list-style: none !important;
+	margin: 0;
+	padding: 0;
+}
+
+input::placeholder {
+	font-weight: bold;
+}
+
+.js-off-canvas-overlay {
+	background-color: transparent;
+}
+
+.logo {
+	max-width: 184px;
+}
+
+/*********************
+Gravity Forms
+*********************/
+@media only screen and (min-width: 641px) {
+.gform_wrapper .ginput_container span:not(.ginput_price) {
+    margin-bottom: 8px;
+    display: inline-block !important;
+}
+}
+
+.gform_wrapper {
+	form {
+		input,
+		textarea {
+			border-bottom: 2px solid $black;
+			color: $black;
+			font-weight: normal;
+			font-size: rem-calc(22px) !important;
+			line-height: 1.225;	
+			padding: 20px 4px 60px !important;
+			transition: font-size 0.2s ease;
+				
+			@include breakpoint(medium) {
+				font-size: rem-calc(24px) !important;
+			}
+			
+			@include breakpoint(smedium) {
+				font-size: rem-calc(28px) !important;
+			}
+			
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(32px) !important;
+			}
+			    
+			@include breakpoint(xxlarge) {
+				font-size: rem-calc(36px) !important;
+			}
+			
+			@include breakpoint(xxxlarge) {
+				font-size: rem-calc(40px) !important;
+			}
+			
+		&::placeholder {
+			color: #6f6f6f !important;
+		}
+			
+		&:focus {
+			border-bottom: 2px solid $black;
+		}
+		
+		&.gform_button.button {
+			border: 2px solid $black;
+			background-color: $black;
+			color: $white;
+			line-height: 2;
+			font-weight: 600;
+			width: auto !important;
+			font-size: rem-calc(20px) !important;
+			padding: 0.5em 2em !important;
+			border-radius: 60px;
+			transition: all 0.25s ease;
+			
+		@include breakpoint(large) {
+			font-size: rem-calc(30px) !important;
+			padding: 0.5em 2.2em !important;
+		}
+		
+		&:hover {
+			background-color: transparent;
+			color: $black;
+		}
+			
+		}
+		
+		&::placeholder {
+			color: $black;
+			font-weight: normal;
+			font-size: rem-calc(22px);
+			line-height: 1.225;	
+			transition: font-size 0.2s ease;
+				
+			@include breakpoint(medium) {
+				font-size: rem-calc(24px);
+			}
+			
+			@include breakpoint(smedium) {
+				font-size: rem-calc(28px);
+			}
+			
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(32px);
+			}
+			    
+			@include breakpoint(xxlarge) {
+				font-size: rem-calc(36px);
+			}
+			
+			@include breakpoint(xxxlarge) {
+				font-size: rem-calc(40px);
+			}
+		}
+			
+		}
+		
+	@media only screen and (min-width: 641px) {
+		
+		.name_first,
+		li#field_1_2 {
+			padding-right: 40px;
+		}
+		
+		.name_last,
+		li#field_1_3 {
+			padding-left: 40px;
+		}
+	
+		.gform_footer {
+			padding-top: 64px;
+		}
+		
+	}
+		
+	}
+}
+
+
+/*********************
+HEADER AND NAV STYLES
+*********************/
+.menu {
+	
+	li {
+
+		a {
+			position: relative;
+			
+			&:after {
+				content: '';
+				position: absolute;
+				width: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				height: 3px;
+				transition: width 0.3s ease;
+			}
+			
+		&:hover:after {
+			width: 100%;
+		}
+			
+		}
+		
+	&.active a:after {
+		width: 100%;
+	}
+		
+	}
+
+&.active > a {
+	color: $primary-color;
+}
+
+}
+
+
+html.no-banner, 
+body.error404 {
+	header.header {
+		.top-bar {
+			> .grid-container {
+								
+				ul#main-nav {
+			    	li {
+				    	a {
+					    	color: $primary-color;	
+					    	
+					    &:after {
+						    background-color: $primary-color;
+					    }
+					    					    	
+				    	}
+			    	}
+			    }
+			    
+			    .top-bar-right ul.menu li a span {
+				    background-color: $primary-color;
+			    }
+			    
+			}
+		}
+	}
+	
+	.content {
+		padding-top: 5em;
+	}
+		
+}
+
+body.error404 {
+	h1 {
+		color: $primary-color;
+	}
+	
+	section.page-copy-wrap .cta-links-wrap a {
+		color: $primary-color;
+		
+    &:after {
+	    background-color: $primary-color;
+    }
+		
+	}
+}
+
+
+header.header {
+	top: 0;
+    position: absolute;
+    z-index: 99999;
+    width: 100%;
+    
+    .top-bar {
+	    padding-top: 2em;
+	    
+	@include breakpoint (medium) {  
+	    padding-top: 5em;
+	} 
+	    
+	    > .grid-container {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    
+			.top-bar-left,
+			.top-bar-right {
+				flex: 0 0 auto;
+			}
+			
+			.top-bar-left {
+				max-width: 200px;
+				
+			@include breakpoint (smedium) {
+				max-width: none;
+			}
+				
+			}
+			
+			.top-bar-right {
+				
+				ul.menu li {
+					min-width: 36px;
+					min-height: 36px;
+				
+					a {
+						padding: 0;
+						display: block;
+						min-width: 36px;
+						min-height: 36px;
+						position: relative;
+
+						span {
+							position: absolute;
+							left: 0;
+							display: inline-block;
+							width: 36px;
+							height: 3px;
+							background-color: $white;
+							
+						&#bar-1,
+						&#bar-2 {
+							transition: transform 0.5s ease;
+						}
+							
+						&#bar-1 {
+							top: 7px;
+						}
+						
+						&#bar-2 {
+							top: 50%;
+							transform: translateY(-50%);
+							transition: width 0.3s ease;
+						}
+						
+						&#bar-3 {
+							top: 27px;
+						}	
+																
+						}
+						
+					&[aria-expanded="true"] {
+						span {
+							
+						&#bar-1 {
+							transform: rotate(45deg) translate(7px, 7px);
+						}
+							
+						&#bar-2 {
+							width: 0;
+						}
+						
+						&#bar-3 {
+							transform: rotate(-45deg) translate(7px, -7px);
+						}
+							
+						}
+					}
+						
+					}
+						
+				}
+			}
+    
+		    ul#main-nav {
+			    li {
+				    font-size: rem-calc(18px);
+				    line-height: 1.269;
+				    font-weight: bold;
+				    font-family: 'PT Sans', sans-serif;
+				    		    
+				    a {
+					    position: relative;
+					    color: $white;
+					    margin: 0 1.95em;
+					    
+					&:after {
+						background: $white;
+					}
+					    
+				    }
+				    
+				&:last-child {
+					a {
+						margin-right: 0;
+					}
+				}
+				    
+				&.is-active {
+					a:after {
+						width: 100%;
+					}
+				}
+				
+				@include breakpoint(medium) {
+					font-size: rem-calc(18px);
+					
+					a {
+						margin: 0 1.15em;
+					}
+					
+				}
+				
+				@include breakpoint(large) {
+					font-size: rem-calc(22px);
+										
+					a {
+						margin: 0 1.5em;
+					}
+					
+				}
+				    
+				@include breakpoint(xxlarge) {
+					font-size: rem-calc(26px);
+					
+					
+					a {
+						margin: 0 1.95em;
+					}					
+					
+				}
+				    
+			    }
+		    }
+		    
+		}
+	    
+	}
+    
+}
+
+ul#offcanvas-nav {
+	padding: 4em 2em;
+	
+@include breakpoint(medium) {
+	padding: 7em 2em;
+}
+	
+	li {
+		margin-bottom: 1em;
+		
+		a {
+			font-weight: bold;
+			display: inline-block;
+			padding-bottom: 0.35em;
+			font-size: rem-calc(30px);
+		}
+		
+	&.active a {
+		color: $primary-color;
+		
+	&:after {
+		background-color: $primary-color;
+	}
+		
+	}
+		
+		
+	}
+	
+}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+.footer {
+	clear: both;
+	border-top: 3px solid $border-gray;
+	margin-top: 6em;
+	padding-top: 3.18em;
+	
+@include breakpoint(medium) {
+	padding-top: 4.18em;
+	margin-top: 8em;
+}
+	
+	.footer-left {
+	
+		ul#footer-links.menu {
+			
+			> li.menu-item-has-children {
+				
+				a {
+					cursor: default;
+					color: $black;
+					font-size: rem-calc(20px);
+					line-height: 1.225;
+					font-weight: 600;
+			
+			@include breakpoint(medium) {
+					font-size: rem-calc(30px);
+			}
+			
+			@include breakpoint(large) {
+					font-size: rem-calc(40px);
+			}
+				
+			}
+				
+				ul.sub-menu {
+					list-style: none;
+					margin: 0;
+					padding: 0;
+					padding-top: 0.6em;
+					
+					li {
+						
+						a { 
+							display: inline-block;
+							cursor: pointer;
+							font-size: rem-calc(17px);
+							padding-bottom: 0.86em;																color: $primary-color;
+							
+						@include breakpoint(medium) {
+								font-size: rem-calc(20px);
+						}
+						
+						@include breakpoint(large) {
+								font-size: rem-calc(24px);
+						}
+						
+						&:after {
+							content: '';
+							position: absolute;
+							left: 0;
+							bottom: 10px;
+							height: 3px;
+							width: 0;
+							background-color: $primary-color;
+							transition: width 0.3s ease;
+						}
+			
+						&:hover:after {
+							width: 100%;
+						}
+			
+						}
+					}
+				}
+				
+			}
+		}
+		
+	}
+	
+	.footer-right {
+		
+		form {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			border-bottom: 3px solid $border-gray;
+			margin-bottom: 7.4em;
+						
+			input[type="text"] {
+				min-width: 100%;
+				font-size: rem-calc(18px) !important;
+				padding: 20px 4px 38px !important;
+				border-bottom: 0;
+				margin: 0 !important;
+				
+			@include breakpoint(smedium) {
+				font-size: rem-calc(20px) !important;
+			}	
+			
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(24px) !important;
+			}
+				
+			&::placeholder {
+				color: #9F9F9F;
+				
+			@include breakpoint(smedium) {
+				font-size: rem-calc(20px) !important;
+			}	
+			
+			@include breakpoint(xlarge) {
+				font-size: rem-calc(24px) !important;
+			}			}
+				
+			}
+
+			.gform_body {
+				width: 100%;
+			    max-width: calc(100% - 40px);
+			}
+			
+			.validation_error {
+				min-width: 100%;
+			}
+			
+			
+			.gform_footer {
+				padding-top: 0;
+				flex: 0;
+				
+				input[type="submit"] {
+				    background: url(/wp-content/themes/summit/assets/images/Arrow-Graphic-Blue.svg);
+				    background-repeat: no-repeat;
+				    background-size: 70px;
+				    background-position: 47% 50%;
+				    border: 0;
+				    font-size: 0!important;
+				    width: 30px!important;
+				    min-height: 30px;
+				    border-radius: 0;
+				    min-width: 100%;
+				    padding: 0;
+				    margin: 0;
+				}
+			
+			}
+		
+		}
+		
+		.footer-social {
+			
+			li {
+				padding: 0;
+				margin-bottom: 1em;
+				
+				a {
+					color: #000;
+					font-size: rem-calc(25px);
+					font-weight: bold;
+					line-height: 1.2;
+					transition: color 0.25s ease;
+					
+				&:hover {
+					color: $primary-color;
+				}
+					
+				}
+				
+			}
+			
+		@include breakpoint(smedium) {
+			display: flex;
+			
+			li {
+				margin-bottom: 0;
+				margin-right: 2em;
+				
+			&:last-child {
+				margin-right: 0;	
+			}
+				
+			}
+			
+		}
+			
+		}
+	}
+	
+	p.copyright {
+		font-size: rem-calc(17px);
+		line-height: 1.225;
+		padding-top: 1.42em;
+		padding-bottom: 1.35em;
+
+		@include breakpoint(medium) {
+				font-size: rem-calc(20px);
+		}
+		
+		@include breakpoint(large) {
+				font-size: rem-calc(24px);
+		}
+		
+	}
+	
+}
+
+/*********************
+CONTACT PAGE
+*********************/
+.page-template-page-template-contact {
+	.contact-form-wrap {
+		padding-top: 6.3em;
+	}
+}
+	
+/*********************
+VISUAL EDITOR STYLES
+*********************/
+// Makes content look better in visual editor
+body#tinymce {
+   	margin: 20px;
+}
+
+/*********************
+PLUGIN STYLES
+*********************/
+// Makes Gravity Forms play nice with Foundation Form styles
+.gform_body ul {
+    list-style: none outside none;
+    margin: 0;
+}
+
+// Hide Gravity Forms validation fields when GFCSS is disabled
+.gform_validation_container,
+.gform_wrapper .gform_validation_container,
+body .gform_wrapper li.gform_validation_container,
+body .gform_wrapper .gform_body ul.gform_fields li.gfield.gform_validation_container,
+body .gform_wrapper ul.gform_fields li.gfield.gform_validation_container {
+    display: none !important;
+    position: absolute !important;
+    left: -9000px;
+}
