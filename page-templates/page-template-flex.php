@@ -70,7 +70,7 @@ get_header(); ?>
 				<?php if( have_rows('single_link') ):?>
 					<?php while ( have_rows('single_link') ) : the_row();?>	
 					
-					<div class="logo-wrap"><img src="/wp-content/themes/summit/assets/images/logo.svg"/></div>
+					<div class="logo-wrap"><img src="/wp-content/themes/summit/assets/images/SCF_Brand_Mark.svg"/></div>
 				
 					<h3><?php the_sub_field('heading');?></h3>
 				
@@ -175,18 +175,36 @@ get_header(); ?>
 							
 						<?php endif;?>	
 					
-						<?php if( get_sub_field('copy_size') == 'small' ):?>		
-							<div class="split-copy-wrap grid-x grid-padding-x small-up-1 large-up-2">
+						<?php if( get_sub_field('copy_size') == 'small' ):?>	
+
+							<?php if( get_sub_field('small_copy_layout') == 'single' ):?>							
+							
+								<div class="split-copy-wrap grid-x grid-padding-x">
+									
+									<div class="cell small-12">
+										<?php the_sub_field('small_copy_single_column');?>
+									</div>
 								
-								<div class="cell">
-									<?php the_sub_field('small_copy_left');?>
 								</div>
 								
-								<div class="cell">
-									<?php the_sub_field('small_copy_right');?>
-								</div>	
+							<?php endif;?>
+
+							<?php if( get_sub_field('small_copy_layout') == 'two' ):?>							
 							
-							</div>
+								<div class="split-copy-wrap grid-x grid-padding-x small-up-1 large-up-2">
+									
+									<div class="cell">
+										<?php the_sub_field('small_copy_left');?>
+									</div>
+									
+									<div class="cell">
+										<?php the_sub_field('small_copy_right');?>
+									</div>	
+								
+								</div>
+							
+							<?php endif;?>
+							
 						<?php endif;?>	
 						
 						<?php if( have_rows('cta_links') ):?>
@@ -383,8 +401,8 @@ get_header(); ?>
 				
 				<div class="cell small-12">
 			
-					<?php if(get_field('contact_form_heading','option')):?>
-						<h2><?php the_field('contact_form_heading','option');?></h2>
+					<?php if(get_sub_field('heading')):?>
+						<h2><?php the_sub_field('heading');?></h2>
 					<?php endif; ?>
 		
 					<?php gravity_form( 1, false, false, false, '', true );?>
@@ -406,5 +424,4 @@ get_header(); ?>
 
 </div> <!-- end #content -->
 
-<?php get_footer(); ?>	
-	
+<?php get_footer(); ?>

@@ -60,11 +60,11 @@ get_header(); ?>
 						
 						<div class="contact-form-wrap cell small-12">
 					
-							<?php if(get_field('contact_form_heading', 'option')):?>
-								<h2><?php the_field('contact_form_heading', 'option');?></h2>
+							<?php if(get_field('contact_form_heading')):?>
+								<h2><?php the_field('contact_form_heading');?></h2>
 							<?php endif; ?>
 				
-							<?php gravity_form( 1, false, false, false, '', true );?>
+							<?php echo do_shortcode(get_field('contact_form_shortcode'));?>
 		
 						</div>
 		

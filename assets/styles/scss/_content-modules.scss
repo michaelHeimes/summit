@@ -472,11 +472,16 @@ html.contact-page {
 		}
 		
 		.left-heading-copy-wrap {
+			
+			h2 {
+				padding-bottom: 0.35em;
+			}
+			
 			.large-copy-wrap {
 			p 	{
 				font-size: rem-calc(28px);
 				line-height: 1.33333;
-				font-weight: bold;
+				font-weight: 600;
 				transition: font-size 0.2s ease;
 				
 			@include breakpoint(medium) {
