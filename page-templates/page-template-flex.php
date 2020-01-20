@@ -28,7 +28,7 @@ get_header(); ?>
 			$heroHeight = get_sub_field('height');
 		?>
 					
-		<div class="hero-banner height-<?php echo esc_attr($heroHeight['value']); ?>" style="background-image: url(<?php echo $imgArr[0]; ?> );">
+		<div class="hero-banner height-<?php echo esc_attr($heroHeight['value']); ?> <?php if($cta_links = get_sub_field('add_call_to_action_links')):?>has-ctas<?php endif;?>" style="background-image: url(<?php echo $imgArr[0]; ?> );">
 								
 			<div class="mask"></div>
 			
@@ -57,41 +57,54 @@ get_header(); ?>
 					
 				</div>
 			</div>
+			
+			<?php if( $cta_links = !get_sub_field('add_call_to_action_links') && is_front_page()):?>
+			
+				<a class="down-arrow" href="#"><span></span><span></span><span></span></a>
+						
+				<div class="banner-bottom"></div>
+			
+			<?php endif;?>
 								
 		</div>
 		
-		<?php if( have_rows('cta_links') ):?>
-		<div class="banner-cta-links-wrap grid-container">
-			<div class="offset grid-x grid-padding-x align-left small-up-1 smedium-up-2 medium-up-3 large-up-3">
-			<?php while ( have_rows('cta_links') ) : the_row();?>	
-			
-			<div class="single-cta-link cell">
-				
-				<?php if( have_rows('single_link') ):?>
-					<?php while ( have_rows('single_link') ) : the_row();?>	
-					
-					<div class="logo-wrap"><img src="/wp-content/themes/summit/assets/images/SCF_Brand_Mark.svg"/></div>
-				
-					<h3><?php the_sub_field('heading');?></h3>
-				
-					<?php 
-					$link = get_sub_field('link');
-					if( $link ): 
-					    $link_url = $link['url'];
-					    $link_title = $link['title'];
-					    $link_target = $link['target'] ? $link['target'] : '_self';
-					    ?>
-					    <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
-					<?php endif; ?>
-												
-					<?php endwhile;?>
-				<?php endif;?>
-				
-			</div>
+		<?php if($cta_links = get_sub_field('add_call_to_action_links')):?>
 		
-			<?php endwhile;?>
+			<?php if( have_rows('cta_links') ):?>
+			<div class="banner-cta-links-wrap grid-container">
+				<div class="offset grid-x grid-padding-x align-left small-up-1 smedium-up-2 medium-up-3 large-up-3">
+				<?php while ( have_rows('cta_links') ) : the_row();?>	
+				
+				<div class="single-cta-link cell">
+					
+					<?php if( have_rows('single_link') ):?>
+						<?php while ( have_rows('single_link') ) : the_row();?>	
+						
+						<div class="logo-wrap"><img src="/wp-content/themes/summit/assets/images/SCF_Brand_Mark.svg"/></div>
+					
+						<h3><?php the_sub_field('heading');?></h3>
+					
+						<?php 
+						$link = get_sub_field('link');
+						if( $link ): 
+						    $link_url = $link['url'];
+						    $link_title = $link['title'];
+						    $link_target = $link['target'] ? $link['target'] : '_self';
+						    ?>
+						    <a href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+						<?php endif; ?>
+													
+						<?php endwhile;?>
+					<?php endif;?>
+					
+				</div>
+			
+				<?php endwhile;?>
+				</div>
+				
 			</div>
-		</div>
+			<?php endif;?>
+			
 		<?php endif;?>
 		
 	<?php endif;?>		

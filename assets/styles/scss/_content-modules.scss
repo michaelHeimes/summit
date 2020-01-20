@@ -68,8 +68,14 @@ html.contact-page {
 		background-repeat: no-repeat;
 		display: flex;
 		align-items: center;
-		padding-top: 5em;
+		padding-top: 9em;
+		padding-bottom: 2em;
+		border-bottom: 10px solid $primary-color;
+		
+	&.has-ctas {
+		border-bottom: 0;
 		padding-bottom: 225px;
+	}
 	
 		.hero-content {
 			position: relative;
@@ -143,8 +149,15 @@ html.contact-page {
 	}
 	
 	&.height-full {
+		padding-top: 40px;
+		padding-bottom: 40px;
 		min-height: 100vh;
 		max-height: 1200px;
+		
+	&.has-ctas {
+		padding-bottom: 225px;
+		border-bottom: 0;
+	}
 		
 		h1 {
 			font-weight: 800;
@@ -177,6 +190,72 @@ html.contact-page {
 		    
 		}
 		
+	}
+	
+	a.down-arrow {
+		position: absolute;
+		bottom: 100px;
+		left: 50%;
+		z-index: 2;
+		display: inline-block;
+		-webkit-transform: translate(0, -50%);
+		transform: translate(0, -50%);
+		color: #fff;
+		text-decoration: none;
+		font-size: 0;
+		transition: opacity .3s;
+		
+	&:after {
+		display: none;
+	}
+		 
+		span { 
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 24px;
+			height: 24px;
+			margin-left: -12px;
+			border-left: 1px solid #fff;
+			border-bottom: 1px solid #fff;
+			transform: rotate(-45deg);
+			animation: downarrow 2s infinite;
+			opacity: 0;
+			box-sizing: border-box;
+			
+		&:nth-of-type(1) {
+			animation-delay: 0s;
+		}
+
+		&:nth-of-type(2) {
+			top: 16px;
+			animation-delay: .15s;
+		}
+		
+		&:nth-of-type(3) {
+			top: 32px;
+			animation-delay: .3s;
+		}
+			
+		}
+		
+		@keyframes downarrow {
+			0% {
+				opacity: 0;
+			}
+			50% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+
+	}
+	
+	.banner-bottom {
+		position: absolute;
+		bottom: -21px;
 	}
 			
 	}
@@ -481,7 +560,7 @@ html.contact-page {
 			p 	{
 				font-size: rem-calc(28px);
 				line-height: 1.33333;
-				font-weight: 600;
+				font-weight: bold;
 				transition: font-size 0.2s ease;
 				
 			@include breakpoint(medium) {

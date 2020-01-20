@@ -442,6 +442,7 @@ h5 {
 h2 {
 	font-size: rem-calc(28px);
 	line-height: 1;
+	line-height: 1.33333;
 	transition: font-size 0.2s ease;
 	
 @include breakpoint(medium) {
